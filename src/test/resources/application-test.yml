@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: mongo-postgres-spring-boot-test
+
+  # Embedded MongoDB Configuration (Flapdoodle)
+  data:
+    mongodb:
+      auto-index-creation: true
+
+  # Disable PostgreSQL in test profile for Employee tests
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+
+logging:
+  level:
+    root: WARN
+    com.example: DEBUG
+    de.flapdoodle.embed: INFO

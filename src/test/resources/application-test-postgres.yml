@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: mongo-postgres-spring-boot-test-postgres
+
+  # Use Testcontainers managed PostgreSQL
+  datasource:
+    url: jdbc:tc:postgresql:15-alpine:///admin_test_db
+    username: admin
+    password: admin123
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: false
+
+  # Disable MongoDB for admin tests
+  data:
+    mongodb:
+      auto-index-creation: false
+
+logging:
+  level:
+    root: WARN
+    com.example: DEBUG
+    org.testcontainers: INFO
