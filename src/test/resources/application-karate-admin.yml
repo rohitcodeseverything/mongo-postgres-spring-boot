@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: mongo-postgres-spring-boot-karate-admin
+
+  # PostgreSQL Configuration with Testcontainers JDBC Driver
+  datasource:
+    url: jdbc:tc:postgresql:15-alpine:///admin_test_db
+    username: postgres
+    password: postgres
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+
+  # MongoDB Configuration (Flapdoodle) - disabled for admin tests
+  data:
+    mongodb:
+      auto-index-creation: true
+de:
+  flapdoodle:
+    mongodb:
+      embedded:
+        version: 7.0.0
+
+server:
+  port: 8081
+
+logging:
+  level:
+    root: WARN
+    com.example: DEBUG
+    org.testcontainers: INFO
+    org.springframework.data.jpa: DEBUG

@@ -1,7 +1,7 @@
 Feature: Employee API CRUD Operations
 
   Background:
-    * url 'http://localhost:8080/api'
+    * url appUrl
     * header Content-Type = 'application/json'
 
   Scenario: Create a new employee
