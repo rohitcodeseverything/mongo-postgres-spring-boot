@@ -20,8 +20,15 @@ spring:
       ddl-auto: create-drop
     show-sql: false
 
+# Flapdoodle MongoDB Version Configuration
+de:
+  flapdoodle:
+    mongodb:
+      embedded:
+        version: 7.0.0
+
 logging:
   level:
     root: WARN
     com.example: DEBUG
-    de.flapdoodle.embed: INFO
+    de.flapdoodle.embed: DEBUG

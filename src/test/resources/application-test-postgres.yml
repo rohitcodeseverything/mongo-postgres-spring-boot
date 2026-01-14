@@ -21,7 +21,14 @@ spring:
   # Disable MongoDB for admin tests
   data:
     mongodb:
-      auto-index-creation: false
+      auto-index-creation: true
+
+de:
+  flapdoodle:
+    mongodb:
+      embedded:
+        version: 7.0.0
+
 
 logging:
   level:
